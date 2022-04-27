@@ -21,7 +21,7 @@ export default function App() {
     e.preventDefault();
 
     let getInfo = await window.walletConnection.account().functionCall({
-      contractId: "dev-1651082838869-52321307875583",
+      contractId: window.nearConfig.contractName,
       methodName: "set_greeting",
       args: { message: "pokemon" },
     });
