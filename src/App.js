@@ -1,7 +1,6 @@
 import "regenerator-runtime/runtime";
 import React, { useState, useEffect } from "react";
 import { login, logout } from "./utils";
-import "./global.css";
 
 // React Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +11,7 @@ import {
   NavDropdown,
   Card,
   Button,
+  Row,
 } from "react-bootstrap";
 
 export default function App() {
@@ -40,7 +40,6 @@ export default function App() {
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='mx-auto'></Nav>
             <Nav>
-              <Nav.Link href='/NewPoll'>New Poll</Nav.Link>
               <Nav.Link onClick={window.accountId === "" ? login : logout}>
                 {window.accountId === "" ? "Login" : window.accountId}
               </Nav.Link>
@@ -48,16 +47,22 @@ export default function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant='top' src='holder.js/100px180' />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>{receipt}</Card.Text>
-          <Button onClick={onSubmit} variant='primary'>
-            Go somewhere
-          </Button>
-        </Card.Body>
-      </Card>
+      <Container>
+        <Row
+          style={{ marginTop: "10px" }}
+          className='justify-content-center d-flex'
+        >
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Display Receipt Example</Card.Title>
+              <Card.Text>{receipt}</Card.Text>
+              <Button onClick={onSubmit} variant='primary'>
+                Go somewhere
+              </Button>
+            </Card.Body>
+          </Card>
+        </Row>
+      </Container>
     </React.Fragment>
   );
 }
